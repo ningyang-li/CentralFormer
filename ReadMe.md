@@ -2,6 +2,8 @@ Our manuscript "**CentralFormer: Centralized Spectral-Spatial Transformer for Hy
 
 We have uploaded a simplified code file of the proposed model.
 
-We will supplement the complete files, including code, data sets, training weights, and etc., as soon as possible.
+We will supplement the complete files, including code, data sets, training weights, and etc., as soon as possible. :)
 
 Here we are so grateful to all reviewers and editors for their constructive comments.
+
+Thanks for your attention.
