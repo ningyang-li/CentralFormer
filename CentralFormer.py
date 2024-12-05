@@ -90,9 +90,9 @@ class CentralFormer(Network):
             '''
             1 | 2 | 3
             ---------
-            4 | 5 | 6
+            8 | 0 | 4
             ---------     
-            7 | 8 | 9
+            7 | 6 | 5
             '''
             
             # (bs, n_channle, 4, 4, n_band)
@@ -120,7 +120,7 @@ class CentralFormer(Network):
                           pool_mode="avg")
             
             # (bs, n_channle, 1, 4, n_band)
-            r4 = K.pool3d(x[:, :, center[0]:center[0] + 1, 0:center[1], :],
+            r8 = K.pool3d(x[:, :, center[0]:center[0] + 1, 0:center[1], :],
                           pool_size=(1, pool_size, 1),
                           strides=(1, strides, 1),
                           padding="valid",
@@ -128,10 +128,10 @@ class CentralFormer(Network):
                           pool_mode="avg")
             
             # (bs, n_channle, 1, 1, n_band)
-            r5 = x[:, :, center[0]:center[0] + 1, center[1]:center[1] + 1, :]
+            r0 = x[:, :, center[0]:center[0] + 1, center[1]:center[1] + 1, :]
             
             # (bs, n_channle, 1, 4, n_band)
-            r6 = K.pool3d(x[:, :, center[0]:center[0] + 1, center[1] + 1:, :],
+            r4 = K.pool3d(x[:, :, center[0]:center[0] + 1, center[1] + 1:, :],
                           pool_size=(1, pool_size, 1),
                           strides=(1, strides, 1),
                           padding="valid",
@@ -147,7 +147,7 @@ class CentralFormer(Network):
                           pool_mode="avg")
             
             # (bs, n_channle, 4, 1, n_band)
-            r8 = K.pool3d(x[:, :, center[0] + 1:, center[1]:center[1] + 1, :],
+            r6 = K.pool3d(x[:, :, center[0] + 1:, center[1]:center[1] + 1, :],
                           pool_size=(pool_size, 1, 1),
                           strides=(strides, 1, 1),
                           padding="valid",
@@ -155,7 +155,7 @@ class CentralFormer(Network):
                           pool_mode="avg")
             
             # (bs, n_channle, 4, 4, n_band)
-            r9 = K.pool3d(x[:, :, center[0] + 1:, center[1] + 1:, :],
+            r5 = K.pool3d(x[:, :, center[0] + 1:, center[1] + 1:, :],
                           pool_size=(pool_size, pool_size, 1),
                           strides=(strides, strides, 1),
                           padding="valid",
@@ -164,10 +164,10 @@ class CentralFormer(Network):
             
             # stack
             r123 = tf.concat([r1, r2, r3], axis=3)
-            r456 = tf.concat([r4, r5, r6], axis=3)
-            r789 = tf.concat([r7, r8, r9], axis=3)
+            r804 = tf.concat([r8, r0, r4], axis=3)
+            r765 = tf.concat([r7, r6, r5], axis=3)
             
-            output = tf.concat([r123, r456, r789], axis=2)
+            output = tf.concat([r123, r804, r765], axis=2)
         
         # pooling in spectral dimension
         output = K.pool3d(output,
