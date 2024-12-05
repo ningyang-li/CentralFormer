@@ -4,13 +4,15 @@
 Authors: Ningyang Li, Zhaohui Wang, Faouzi Alaya Cheikh, Lei Wang  
 Journal: IEEE Transactions on Geoscience and Remote Sensing (TGRS)  
 Environment: Python 3.6., Tensorflow 2.2.2, Keras 2.2.2, Numpy 1.19.  
-<ul>
-  <li>Samples can be acquired from google drive.</li>
-  <li>Model weights are provided in "weights" folder.</li>
-  <li>Classification results have been recorded in "results" folder.</li>
-  <li>Be sure to set your own "project folder" before running the traning code.</li>
-  <li>An independent Circular Pooling (CP) class file has been built, you can call and integrate it to other baselines flexibly.</li>
-</ul>
+
+
+- To train and test the CentralFormer model, you need to download the prepared samples ahead and run "train_CentralFormer.py" file.
+- Samples can be acquired from **[Google Drive](https://drive.google.com/drive/folders/1Htr4jgtJyRT24VSbVbg2jED7kXAYUGqV?usp=drive_link)** and **[Baidu Disk](https://pan.baidu.com/s/1G6ktXC-EKGUVdvJJ-2xWkw)** code: ntnu.
+- Model weights are provided in "weights" folder.
+- Classification results have been recorded in "results" folder.
+- Be sure to set your own "project folder" before training.
+- An independent Circular Pooling (CP) class file has been built, you can call and integrate it to other baselines flexibly.
+
 
 
 ## Abstract
@@ -56,6 +58,6 @@ doi={10.1109/TGRS.2024.3509455}}
 
 <h4>Here we are so grateful to all reviewers and editors for their constructive comments.</h4>
 
-<h4>If you have some problems when implement our code, please feel free to contact us : )</h4>
+<h4>If you have some problems when implement our code, please feel free to contact us :relaxed:</h4>
 
 <h4>Thanks for your attention.</h4>
