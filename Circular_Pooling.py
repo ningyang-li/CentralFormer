@@ -5,13 +5,30 @@ import tensorflow.keras.backend as K
 import tensorflow as tf
 import numpy as np
 
+'''
+Circular pooling (CP), a novel pooling pattern tailored for hyperspectral image (HSI) classification,
+Each HSI cube/patch is considered as a center pixel and some circles.
+CP just pools the circles but protects the center pixel, thereby ensuring the relevance and effectiveness of features during dimension reduction.
+
+If you want to employ the Circular Pooling (CP), please kindly cite our article as follow :)
+
+    N. Li, Z. Wang, F. A. Cheikh and L. Wang, "CentralFormer: Centralized Spectral-Spatial Transformer for Hyperspectral Image Classification with Adaptive Relevance Estimation and Circular Pooling," in IEEE Transactions on Geoscience and Remote Sensing, doi: 10.1109/TGRS.2024.3509455.
+
+    @ARTICLE{10772042,
+    author={Li, Ningyang and Wang, Zhaohui and Cheikh, Faouzi Alaya and Wang, Lei},
+    journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+    title={CentralFormer: Centralized Spectral-Spatial Transformer for Hyperspectral Image Classification with Adaptive Relevance Estimation and Circular Pooling}, 
+    year={2024},
+    volume={},
+    number={},
+    pages={1-1},
+    keywords={Feature extraction;Transformers;Computer architecture;Hyperspectral imaging;Correlation;Computational modeling;Computational complexity;Accuracy;Kernel;Image classification;Hyperspectral image classification;transformer;center pixel;relevant area;circular pooling;attention mechanism},
+    doi={10.1109/TGRS.2024.3509455}}
+'''
+
 
 class Circular_Pooling(Layer):
     '''
-    Circular pooling (CP), a novel pooling pattern tailored for hyperspectral image (HSI) classification,
-    Each HSI cube/patch is considered as a center pixel and some circles.
-    CP just pools the circles but protects the center pixel, thereby ensuring the relevance and effectiveness of features.
-
     pool_size = 2, strides = 1 ==> n_circles - 1, width - 2
     pool_size = 2, strides = 2 ==> n_circles - 2, width - 4
     '''
