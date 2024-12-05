@@ -14,7 +14,8 @@ from CentralFormer import CentralFormer
 import utils
 
 
-project_folder = ""     # your own project folder name, such as "D:\\project\\"
+project_folder = os.getcwd()        # your own project folder name, such as "D:\\project\\"
+ds_name = args.ds_name.lower()      # lower all capitalized letter of the name of data set
 
 # Prepare your own training, validation, and test samples here
 # You can also download our processed samples here (https://drive.google.com/drive/folders/1Htr4jgtJyRT24VSbVbg2jED7kXAYUGqV?usp=drive_link).
@@ -25,19 +26,19 @@ project_folder = ""     # your own project folder name, such as "D:\\project\\"
 # taking Indian Pines data set as an example
 input_shape = [1, args.width[args.ds_name], args.width[args.ds_name], args.band[args.ds_name]]
 
-X_train = np.load(os.path.join(project_folder, r"\CentralFormer\samples\indian_pines_x_training.npy"))                # (bs_training, 1, 11, 11, 200) 
-y_train = np.load(os.path.join(project_folder, r"\CentralFormer\samples\indian_pines_y_training.npy"))              # (bs_training, 1)
+X_train = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_x_training.npy"))   # (bs_training, 1, 11, 11, 200) 
+y_train = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_y_training.npy"))   # (bs_training, 1)
 # remember to convert label to the one-hot form
-y_train_1hot = np_utils.to_categorical(y_train, args.n_category[args.ds_name])              # (bs_training, 16)
+y_train_1hot = np_utils.to_categorical(y_train, args.n_category[args.ds_name])                            # (bs_training, 16)
 
-# validation samples    
-X_val = np.load(os.path.join(project_folder, r"\CentralFormer\samples\indian_pines_x_val.npy"))
-y_val = np.load(os.path.join(project_folder, r"\CentralFormer\samples\indian_pines_y_val.npy"))
+# validation samples
+X_val = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_x_val.npy"))
+y_val = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_y_val.npy"))
 y_val_1hot = np_utils.to_categorical(y_val, args.n_category[args.ds_name])
 
 # test samples
-X_test = np.load(os.path.join(project_folder, r"\CentralFormer\samples\indian_pines_x_test.npy"))
-y_test = np.load(os.path.join(project_folder, r"\CentralFormer\samples\indian_pines_y_test.npy"))
+X_test = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_x_test.npy"))
+y_test = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_y_test.npy"))
 y_test_1hot = np_utils.to_categorical(y_test, args.n_category[args.ds_name])
 
 
@@ -49,9 +50,14 @@ for i in range(args.width[args.ds_name]):
 puppet = np.array(puppet, dtype=np.float32)                     # (n,)
 puppet = np.expand_dims(puppet, axis=(0, 1, 3, 4))              # (1, 1, n, 1, 1)
 
-puppet_train = np.repeat(puppet, X_train.shape[0], axis=0)   # (bs_training, 1, n, 1, 1)
+puppet_train = np.repeat(puppet, X_train.shape[0], axis=0)      # (bs_training, 1, n, 1, 1)
 puppet_val = np.repeat(puppet, X_val.shape[0], axis=0)          # (bs_val, 1, n, 1, 1)
 puppet_test = np.repeat(puppet, X_test.shape[0], axis=0)        # (bs_test, 1, n, 1, 1)
+
+# If you have downloaded puppet files, just load them with np.load() method.
+# puppet_train = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_puppet_training.npy"))
+# puppet_val = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_puppet_val.npy"))
+# puppet_test = np.load(os.path.join(project_folder, "CentralFomer", "samples", ds_name + "_puppet_test.npy"))
 
 
 # optimizer
@@ -80,8 +86,8 @@ model = network.model
 model.compile(optimizer=rmsprop, loss="categorical_crossentropy", metrics=["accuracy"])
 
 # load weights with (1)keras package or (2)the methods of network class 
-# 1. model.load_weights(r"D:\...\indian_pines.h5")
-# 2. network.load_weights(r"D:\...\indian_pines.pickle")
+# 1. model.load_weights(r"D:\...\CentralFormer\weights\indian_pines.h5")
+# 2. network.load_weights(r"D:\...\CentralFormer\weights\indian_pines.pickle")
 
 
 # training
@@ -110,8 +116,8 @@ for i in range(args.epochs):
 
 print("best OA: ", best_OA)
 model.set_weights(best_state)
-model.save_weights(np.load(os.path.join(project_folder, r"\CentralFormer\weights\indian_pines.h5")))
-network.save_weights(np.load(os.path.join(project_folder, r"\CentralFormer\weights\indian_pines.pickle")))
+model.save_weights(np.load(os.path.join(project_folder, "CentralFomer", "weights", ds_name + ".h5")))
+network.save_weights(np.load(os.path.join(project_folder, "CentralFomer", "weights", ds_name + ".pickle")))
 
 # play sound
 if args.env == 0:
@@ -137,13 +143,13 @@ print(metrics, matrix, kappa, time_training, time_test)
 
 
 # qualitative evaluation (predict all labeled pixels)
-X = np.load(os.path.join(project_folder, r"\CentralFormer\samples\4prediction\indian_pines.npy"))
-pos = np.load(os.path.join(project_folder, r"\CentralFormer\samples\4prediction\indian_pines_pos.npy"))
+X = np.load(os.path.join(project_folder, "CentralFomer", "samples", "4prediction", ds_name + ".npy"))
+pos = np.load(os.path.join(project_folder, "CentralFomer", "samples", "4prediction", ds_name + "_pos.npy"))
 puppet_all = np.repeat(puppet, X.shape[0], axis=0)   # (bs_all_labeled_pixels, 1, n, 1, 1)
 y = model.predict([X, puppet_all])
 
 predicted_map = utils.get_predicted_map(np.argmax(y, axis=1), pos, args.row[args.ds_name], args.col[args.ds_name])
-utils.save_predicted_map(predicted_map, os.path.join(project_folder, r"\CentralFormer\results\indian_pines_pos.png"))
+utils.save_predicted_map(predicted_map, os.path.join(project_folder, "CentralFomer", "samples", "results", ds_name + ".png"))
 
 
   
