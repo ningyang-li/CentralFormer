@@ -26,15 +26,15 @@ into full account their relative importance. Before fusing, the CP layer is also
 4. An end-to-end CentralFormer model is proposed for HSI classification. Compared with other methods, especially for the transformer architectures, it excels at inferring the critical
 attention modes in connection with the relevant areas and extracting the discriminating spectral-spatial features efficiently.
 
-![Image](https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/overview.png)
+<img src="https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/overview.png" width="1000" />
 
-![Image](https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/CMHA.png)
+<img src="https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/CMHA.png" width="1000" />
 
-![Image](https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/CP.png)
+<img src="https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/CP.png" width="500" />
 
-![Image](https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/ARE.png)
+<img src="https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/ARE.png" width="500" />
 
-![Image](https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/CERF.png)
+<img src="https://github.com/ningyang-li/CentralFormer/blob/914b3f1a8f5bfb3c633aefb88afabeb01fc5830f/pic/CERF.png" width="500" />
 
 
 ## Citation
