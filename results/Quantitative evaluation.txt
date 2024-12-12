@@ -1,6 +1,6 @@
 ===Indian Pines
 ---metrics
-precision    recall  f1-score   support
+              precision    recall  f1-score   support
 
           c1     1.0000    0.6905    0.8169        42
           c2     0.8236    0.7916    0.8073      1286
