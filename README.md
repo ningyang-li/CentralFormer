@@ -3,7 +3,7 @@
 ## [CentralFormer: Centralized Spectral-Spatial Transformer for Hyperspectral Image Classification with Adaptive Relevance Estimation and Circular Pooling](https://ieeexplore.ieee.org/document/10772042)  
 Authors: Ningyang Li, Zhaohui Wang, Faouzi Alaya Cheikh, Lei Wang  
 Journal: IEEE Transactions on Geoscience and Remote Sensing (TGRS)  
-Environment: Python 3.6., Tensorflow 2.2.2, Keras 2.2.2, Numpy 1.19.  
+Environment: Python 3.9.16, Tensorflow 2.6.0, Keras 2.6.0.  
 
 
 - To train and test the CentralFormer model, you need to download the prepared samples ahead and run "train_CentralFormer.py" file.
