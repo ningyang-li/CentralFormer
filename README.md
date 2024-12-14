@@ -39,20 +39,20 @@ attention modes in connection with the relevant areas and extracting the discrim
 
 ## Citation
 ```
-N. Li, Z. Wang, F. A. Cheikh and L. Wang, "CentralFormer: Centralized Spectral-Spatial Transformer for Hyperspectral Image Classification with Adaptive Relevance Estimation and Circular Pooling," in IEEE Transactions on Geoscience and Remote Sensing, doi: 10.1109/TGRS.2024.3509455.
+N. Li, Z. Wang, F. Alaya Cheikh and L. Wang, "CentralFormer: Centralized Spectral-Spatial Transformer for Hyperspectral Image Classification With Adaptive Relevance Estimation and Circular Pooling," in IEEE Transactions on Geoscience and Remote Sensing, vol. 62, pp. 1-16, 2024, Art no. 5540716.
 ```
 
 
 ```
 @ARTICLE{10772042,
-author={Li, Ningyang and Wang, Zhaohui and Cheikh, Faouzi Alaya and Wang, Lei},
+author={Li, Ningyang and Wang, Zhaohui and Alaya Cheikh, Faouzi and Wang, Lei},
 journal={IEEE Transactions on Geoscience and Remote Sensing}, 
-title={CentralFormer: Centralized Spectral-Spatial Transformer for Hyperspectral Image Classification with Adaptive Relevance Estimation and Circular Pooling}, 
+title={CentralFormer: Centralized Spectral-Spatial Transformer for Hyperspectral Image Classification With Adaptive Relevance Estimation and Circular Pooling}, 
 year={2024},
-volume={},
+volume={62},
 number={},
-pages={1-1},
-keywords={Feature extraction;Transformers;Computer architecture;Hyperspectral imaging;Correlation;Computational modeling;Computational complexity;Accuracy;Kernel;Image classification;Hyperspectral image classification;transformer;center pixel;relevant area;circular pooling;attention mechanism},
+pages={1-16},
+keywords={Feature extraction;Transformers;Computer architecture;Hyperspectral imaging;Correlation;Computational modeling;Computational complexity;Accuracy;Kernel;Image classification;Attention mechanism;center pixel;circular pooling (CP);hyperspectral image (HSI) classification;relevant area;transformer},
 doi={10.1109/TGRS.2024.3509455}}
 ```
 
