@@ -21,7 +21,7 @@ ds_name = args.ds_name.lower()      # lower all capitalized letter of the name o
 # You can also download our processed samples here (https://drive.google.com/drive/folders/1Htr4jgtJyRT24VSbVbg2jED7kXAYUGqV?usp=drive_link).
 # We generated these samples with the random seed 42.
 # Shapes: Indian Pines (1, 11, 11, 200), Pavia University: (1, 5, 5, 103), Loukia: (1, 7, 7, 176), Dioni: (1, 5, 5, 176)
-# training : validation : test => Indian Pines (0.05 : 0.05: 0.9), Pavia University: (0.2: 0.05: 0.93), Loukia: (0.05 : 0.05: 0.9), Dioni: (0.05 : 0.05: 0.9)
+# training : validation : test => Indian Pines (0.05 : 0.05: 0.9), Pavia University: (0.02: 0.05: 0.93), Loukia: (0.05 : 0.05: 0.9), Dioni: (0.05 : 0.05: 0.9)
 
 # taking Indian Pines data set as an example
 input_shape = [1, args.width[args.ds_name], args.width[args.ds_name], args.band[args.ds_name]]
